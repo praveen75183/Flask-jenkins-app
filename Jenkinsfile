@@ -7,7 +7,7 @@
 //       'deploy-ssh-key'   SSH private key for the deploy host (only if deploying)
 //   - Plugins: Pipeline, Git, Credentials Binding, SSH Agent, JUnit, Cobertura/Coverage (optional)
 pipeline {
-    agent { label 'docker' }
+    agent any
 
     options {
         timestamps()
@@ -30,7 +30,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'main', url: 'https://github.com/praveen75183/Flask-jenkins-app.git'
             }
         }
 
