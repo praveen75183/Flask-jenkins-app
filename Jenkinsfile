@@ -22,7 +22,7 @@ pipeline {
 
     environment {
         REGISTRY    = 'docker.io'
-        IMAGE_REPO  = 'your-dockerhub-user/flask-jenkins-app'   // <-- change me
+        IMAGE_REPO  = 'praveen75183/my_flask_app'   // <-- change me
         IMAGE_TAG   = "${env.BUILD_NUMBER}"
         DEPLOY_HOST = 'user@your-server-ip'                      // <-- change me
     }
@@ -105,7 +105,7 @@ pipeline {
             when { branch 'main' }
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
+                    credentialsId: 'dockerhub-credentials',
                     usernameVariable: 'REG_USER',
                     passwordVariable: 'REG_PASS'
                 )]) {
